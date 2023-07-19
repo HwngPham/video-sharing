@@ -118,6 +118,7 @@ GEM
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
+    pg (1.5.3)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -217,6 +218,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
   debug
+  pg (~> 1.5)
   pry (~> 0.13.1)
   puma (~> 5.0)
   rack-cors

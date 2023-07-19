@@ -7,6 +7,8 @@ gem "rails", "~> 7.0.6"
 
 gem "sqlite3", "~> 1.4"
 
+gem "pg", "~> 1.5"
+
 gem "puma", "~> 5.0"
 
 gem "redis", "~> 4.0"
@@ -24,9 +26,9 @@ gem "rack-cors"
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 
-  gem 'rspec-rails', '~> 6.0.0'
+  gem "rspec-rails", "~> 6.0.0"
 
-  gem 'rubocop-rails', require: false
+  gem "rubocop-rails", require: false
 
-  gem 'pry', '~> 0.13.1'
+  gem "pry", "~> 0.13.1"
 end
