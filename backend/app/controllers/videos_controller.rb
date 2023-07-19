@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
-  before_action :set_video, only: %i[ show update destroy ]
+  before_action :set_video, only: :show
+  before_action :require_login, only: :create
 
   def index
     render json: Video.all
@@ -11,6 +12,7 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.new(video_params)
+    @video.user = current_user
 
     if @video.save
       render json: @video, status: :created, location: @video
@@ -25,6 +27,6 @@ class VideosController < ApplicationController
     end
 
     def video_params
-      params.require(:video).permit(:title, :src, :desc)
+      params.permit(:src)
     end
 end
