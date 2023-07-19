@@ -1,16 +1,11 @@
 class AuthController < ApplicationController
-  before_action :get_user, except: [:logout]
+  before_action :set_user, except: [:logout]
 
   def register
-    if @user
-      return render json: { 'message': 'User is already existed.'}.to_json, status: :forbidden
-    end
+    return render json: { message: 'User is already existed.' }.to_json, status: :forbidden if @user
 
     @user = User.new(user_params)
-
-    unless @user.valid?
-      return render json: { 'message': @user.errors }.to_json, status: :bad_request
-    end
+    return render json: { message: @user.errors }.to_json, status: :bad_request unless @user.valid?
 
     if @user.save
       authenticate
@@ -21,15 +16,13 @@ class AuthController < ApplicationController
   end
 
   def login
-    unless @user
-      return render json: { 'message': 'User is not existed.'}.to_json, status: :not_found
-    end
+    return render json: { message: 'User is not existed.' }.to_json, status: :not_found unless @user
 
     if @user.authenticate(user_params[:password])
       authenticate
       render status: :ok
     else
-      render json: { 'message': 'Invalid email or password' }, status: :unauthorized
+      render json: { message: 'Invalid email or password' }, status: :unauthorized
     end
   end
 
@@ -39,15 +32,16 @@ class AuthController < ApplicationController
   end
 
   private
-    def get_user
-      @user ||= User.find_by(email: user_params[:email].downcase)
-    end
 
-    def user_params
-      params.permit(:email, :password)
-    end
+  def set_user
+    @user ||= User.find_by(email: user_params[:email].downcase)
+  end
 
-    def authenticate
-      session[:current_user_id] = @user.id
-    end
+  def user_params
+    params.permit(:email, :password)
+  end
+
+  def authenticate
+    session[:current_user_id] = @user.id
+  end
 end

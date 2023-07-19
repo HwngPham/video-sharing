@@ -22,11 +22,12 @@ class VideosController < ApplicationController
   end
 
   private
-    def set_video
-      @video = Video.find(params[:id])
-    end
 
-    def video_params
-      params.permit(:src)
-    end
+  def set_video
+    @video = Video.find(params[:id])
+  end
+
+  def video_params
+    params.permit(:src)
+  end
 end
