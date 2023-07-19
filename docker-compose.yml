@@ -7,3 +7,5 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: root
+    ports:
+      - 5432:5432
