@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  resources :videos
-  resources :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  namespace :auth do
+    post 'login', to: 'login', as: 'login'
+    post 'register', to: 'register', as: 'register'
+    delete 'logout', to: 'logout', as: 'logout'
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :api do
+    resources :videos
+  end
 end
