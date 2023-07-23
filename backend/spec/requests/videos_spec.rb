@@ -1,24 +1,27 @@
 require 'rails_helper'
 
-RSpec.describe '/videos', type: :request do
+RSpec.describe '/videos' do
   describe 'GET /index' do
-    it 'renders a successful response' do
+    before do
       user = User.create! email: 'foobar@eg.com', password: 'foobar'
       Video.create! src: 'https://youtu.be/7lVE9BQENGg', user: user
       Video.create! src: 'https://youtu.be/7lVE9BQENGg', user: user
+    end
+
+    it 'renders a successful response' do
       get '/api/videos', as: :json
-      expect(JSON.parse(response.body)).to eq(Video.all.as_json)
+      expect(response.parsed_body).to eq(Video.all.as_json)
       expect(response).to be_successful
     end
   end
 
   describe 'POST /create' do
-    before {
+    before do
       user = User.create! email: 'foobar@eg.com', password: 'foobar'
       allow_any_instance_of(VideosController).to receive(:current_user) do
         user
-      end 
-    }
+      end
+    end
 
     context 'with valid src attribute' do
       it 'creates a new Video' do

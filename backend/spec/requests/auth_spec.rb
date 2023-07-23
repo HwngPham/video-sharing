@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe '/auth', type: :request do
+RSpec.describe '/auth' do
   describe 'POST /register' do
     before :all do
       User.delete_all
@@ -39,13 +39,14 @@ RSpec.describe '/auth', type: :request do
   describe 'POST /login' do
     before :all do
       User.delete_all
-      @user = User.create!(email: 'logmein@email.com', password: 'foobar')
     end
+
+    let(:user) { User.create!(email: 'logmein@email.com', password: 'foobar') }
 
     describe 'when invalid email or password' do
       it 'does not log user in' do
         post '/auth/login',
-             params: { emai: @user.email, password: '' }
+             params: { emai: user.email, password: '' }
 
         expect(response).to have_http_status :unauthorized
         expect(session[:current_user_id]).to be_nil
@@ -55,10 +56,10 @@ RSpec.describe '/auth', type: :request do
     describe 'when valid email and password' do
       it 'logs user in' do
         post '/auth/login',
-             params: { email: @user.email, password: @user.password }
-        
+             params: { email: user.email, password: user.password }
+
         expect(response).to have_http_status :ok
-        expect(session[:current_user_id]).to be @user.id
+        expect(session[:current_user_id]).to be user.id
       end
     end
   end
