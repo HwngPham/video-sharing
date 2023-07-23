@@ -1,0 +1,1 @@
+export const SharedVideo = () => null
