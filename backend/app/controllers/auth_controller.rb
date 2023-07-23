@@ -16,13 +16,13 @@ class AuthController < ApplicationController
   end
 
   def login
-    return render json: { message: 'User is not existed.' }.to_json, status: :not_found unless @user
+    return render json: { message: 'Invalid email or password.' }.to_json, status: :unauthorized unless @user
 
     if @user.authenticate(user_params[:password])
       authenticate
       render status: :ok
     else
-      render json: { message: 'Invalid email or password' }, status: :unauthorized
+      render json: { message: 'Invalid email or password.' }, status: :unauthorized
     end
   end
 
@@ -34,7 +34,7 @@ class AuthController < ApplicationController
   private
 
   def set_user
-    @user ||= User.find_by(email: user_params[:email].downcase)
+    @user ||= User.find_by(email: user_params[:email])
   end
 
   def user_params

@@ -6,10 +6,6 @@ class VideosController < ApplicationController
     render json: Video.all
   end
 
-  def show
-    render json: @video
-  end
-
   def create
     @video = Video.new(video_params)
     @video.user = current_user
