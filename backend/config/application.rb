@@ -31,5 +31,10 @@ module Backend
     config.middleware.use ActionDispatch::Cookies
 
     config.middleware.use config.session_store, config.session_options
+
+    env_file = File.join(Rails.root, '.env.yml')
+    YAML.load(File.open(env_file)).each do |key, value|
+      ENV[key.to_s]= value.to_s
+    end if File.exists?(env_file)
   end
 end
