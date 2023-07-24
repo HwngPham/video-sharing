@@ -18,6 +18,7 @@ export type Video = {
   thumbnail_width?: number;
   thumbnail_url?: string;
   html?: string;
+  shared_by?: string
 };
 
 export type User = {

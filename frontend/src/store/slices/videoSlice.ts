@@ -21,6 +21,7 @@ export const videoSlice = (set: any) => ({
           state.videos.push({
             ...newVideo,
             ...videoDetail,
+            shared_by: state.user?.email,
           });
         },
         MERGE_STATE,

@@ -11,7 +11,7 @@ export const SharedVideo = ({ video }: SharedVideoProps) => {
   useEffect(() => {
     const syncVideoDetail = async () => {
       const detail = await getVideoDetail(video.src);
-      setState(detail);
+      setState({ ...state, ...detail });
     };
 
     !video?.version && syncVideoDetail();
@@ -32,9 +32,8 @@ export const SharedVideo = ({ video }: SharedVideoProps) => {
         </div>
         <div className="flex items-center">
           <div className="text-sm">
-            {/* @ts-ignore */}
-            <p className="text-gray-900 leading-none">
-              shared by {state.user_id}
+            <p className="text-gray-600 leading-none">
+              Shared by {state.shared_by}
             </p>
           </div>
         </div>
