@@ -16,6 +16,7 @@ class VideosController < ApplicationController
 
       @video.html_text = video_detail['html']
       @video.desc = video_detail['author_name']
+      @video.title = video_detail['title']
 
       if @video.save
         render json: { message: @video }, status: :created, location: @video
