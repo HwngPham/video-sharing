@@ -8,7 +8,7 @@ export const HomePage = () => {
 
   useEffect(() => {
     fetchVideos();
-  }, []);
+  }, [fetchVideos]);
 
   useEffect(() => {
     const resetIframeStyle = () => {
