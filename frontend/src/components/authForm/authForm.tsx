@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useStore } from "../../store";
 import { Button } from "../button/button";
+import { TextInput } from "../textInput/textInput";
 
 const initState = {
   email: "",
@@ -28,24 +29,24 @@ export const AuthForm = () => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="text-sm flex gap-1">
-      <input
-        className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-1 px-4 block w-full appearance-none leading-normal"
-        name="email"
-        placeholder="email"
-        required
-        value={formData.email}
-        onChange={onChange}
-      />
-      <input
-        className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-sm py-1 px-4 block w-full appearance-none leading-normal"
-        name="password"
-        type="password"
-        placeholder="password"
-        required
-        value={formData.password}
-        onChange={onChange}
-      />
+    <form onSubmit={onSubmit} className="text-sm flex gap-2 flex-wrap">
+      <div className="flex flex-col gap-1 md:flex-row">
+        <TextInput
+          name="email"
+          placeholder="email"
+          required
+          value={formData.email}
+          onChange={onChange}
+        />
+        <TextInput
+          name="password"
+          type="password"
+          placeholder="password"
+          required
+          value={formData.password}
+          onChange={onChange}
+        />
+      </div>
       <Button type="submit">Login / Register</Button>
     </form>
   );

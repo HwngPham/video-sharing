@@ -9,17 +9,18 @@ export const videoSlice = (set: any) => ({
   ...initState,
 
   fetchVideos: async () => {
-    set({ videos: await getVideos() }, MERGE_STATE, "videos/list")
+    set({ videos: await getVideos() }, MERGE_STATE, "videos/list");
   },
 
   createVideo: async (src: string) => {
-    const newVideo = await createVideo(src)
-    set(
-      (state: StoreState) => {
-        state.videos.push(newVideo)
-      },
-      MERGE_STATE,
-      "videos/create"
-    )
+    const newVideo = await createVideo(src);
+    newVideo &&
+      set(
+        (state: StoreState) => {
+          state.videos.push(newVideo);
+        },
+        MERGE_STATE,
+        "videos/create"
+      );
   },
-})
+});

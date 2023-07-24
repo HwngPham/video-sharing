@@ -10,9 +10,9 @@ class VideosController < ApplicationController
     @video.user = current_user
 
     if @video.save
-      render json: @video, status: :created, location: @video
+      render json: { message: @video }, status: :created, location: @video
     else
-      render json: @video.errors, status: :unprocessable_entity
+      render json: { message: @video.errors }, status: :unprocessable_entity
     end
   end
 

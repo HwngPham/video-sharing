@@ -17,7 +17,11 @@ export const createVideo = async (src: string) => {
       method: "post",
       data: { src },
     });
-    return getResponseData(res);
+    const data = await getResponseData(res);
+
+    if (res.status === 201) return data;
+    alert(JSON.stringify(data));
+    return null;
   } catch (e) {
     console.error(e);
   }

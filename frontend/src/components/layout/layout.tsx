@@ -8,8 +8,7 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <div>
       <Navigation />
-
-      {children}
+      <main>{children}</main>
     </div>
   );
 };
