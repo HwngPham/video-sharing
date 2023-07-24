@@ -24,7 +24,7 @@ RSpec.describe '/videos' do
     end
 
     context 'with valid src attribute' do
-      it 'creates a new Video' do
+      it 'creates a new video' do
         post videos_url,
              params: { src: 'https://youtu.be/7lVE9BQENGg' }, as: :json
         expect(response).to have_http_status(:created)
@@ -33,11 +33,21 @@ RSpec.describe '/videos' do
     end
 
     context 'with invalid src attribute' do
-      it 'does not create a new Video' do
+      it 'does not create a new video' do
         post videos_url,
-             params: { video: 'http' }, as: :json
+             params: { src: 'http' }, as: :json
 
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:bad_request)
+        expect(Video.count).to eq(0)
+      end
+    end
+
+    context 'with invalid Youtube url' do
+      it 'does not create a new video' do
+        post videos_url,
+             params: { src: 'https://youtu.be/abcdef' }, as: :json
+
+        expect(response).to have_http_status(:bad_request)
         expect(Video.count).to eq(0)
       end
     end

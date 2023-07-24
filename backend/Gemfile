@@ -23,6 +23,8 @@ gem 'bootsnap', require: false
 
 gem 'rack-cors'
 
+gem 'httparty', '~> 0.17.3'
+
 group :development, :test do
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
 

@@ -4,14 +4,13 @@ require:
 
 AllCops:
   Exclude:
-    - 'db/**/*'
-    - 'config/**/*'
-    - 'script/**/*'
-    - 'bin/**/*'
+    - "db/**/*"
+    - "config/**/*"
+    - "script/**/*"
+    - "bin/**/*"
     - Gemfile
     - Rakefile
     - spec/*helper.rb
-
 
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -392,4 +391,6 @@ RSpec/AnyInstance:
 RSpec/BeforeAfterAll:
   Enabled: false
 RSpec/DescribedClass:
+  Enabled: false
+Metrics/AbcSize:
   Enabled: false
