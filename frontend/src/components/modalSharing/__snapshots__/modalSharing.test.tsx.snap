@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ModalSharing /> matches snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        aria-labelledby="modal-title"
+        aria-modal="true"
+        class="relative z-10"
+        role="dialog"
+      >
+        <div
+          class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+        />
+        <div
+          class="fixed inset-0 z-10 overflow-y-auto"
+        >
+          <div
+            class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
+          >
+            <div
+              class="relative transform overflow-hidden rounded-sm bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
+            >
+              <div
+                class="bg-white px-4 pb-4 pt-2 sm:p-6 sm:pb-4"
+              >
+                <div
+                  class="flex justify-between items-baseline"
+                >
+                  <h3
+                    class="text-base font-semibold leading-6 text-gray-900 mb-4"
+                    id="modal-title"
+                  >
+                    Share a Youtube movie
+                  </h3>
+                  <button
+                    class="font-semibold"
+                  >
+                    X
+                  </button>
+                </div>
+                <form>
+                  <div
+                    class="flex items-baseline text-sm"
+                  >
+                    <label
+                      class="whitespace-nowrap mr-2"
+                      for="src"
+                    >
+                      Youtube URL:
+                       
+                    </label>
+                    <input
+                      class="bg-white py-1 px-4 block w-full appearance-none leading-normal border border-gray-300 rounded-sm focus:outline-none focus:shadow-outline"
+                      id="src"
+                      name="src"
+                      required=""
+                      value=""
+                    />
+                  </div>
+                  <button
+                    class="bg-blue-500 text-white py-1 px-4 rounded-sm border cursor-pointer whitespace-nowrap hover:bg-blue-700 hover:border-transparent w-full mt-4"
+                    type="submit"
+                  >
+                    Share
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      aria-labelledby="modal-title"
+      aria-modal="true"
+      class="relative z-10"
+      role="dialog"
+    >
+      <div
+        class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+      />
+      <div
+        class="fixed inset-0 z-10 overflow-y-auto"
+      >
+        <div
+          class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
+        >
+          <div
+            class="relative transform overflow-hidden rounded-sm bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
+          >
+            <div
+              class="bg-white px-4 pb-4 pt-2 sm:p-6 sm:pb-4"
+            >
+              <div
+                class="flex justify-between items-baseline"
+              >
+                <h3
+                  class="text-base font-semibold leading-6 text-gray-900 mb-4"
+                  id="modal-title"
+                >
+                  Share a Youtube movie
+                </h3>
+                <button
+                  class="font-semibold"
+                >
+                  X
+                </button>
+              </div>
+              <form>
+                <div
+                  class="flex items-baseline text-sm"
+                >
+                  <label
+                    class="whitespace-nowrap mr-2"
+                    for="src"
+                  >
+                    Youtube URL:
+                     
+                  </label>
+                  <input
+                    class="bg-white py-1 px-4 block w-full appearance-none leading-normal border border-gray-300 rounded-sm focus:outline-none focus:shadow-outline"
+                    id="src"
+                    name="src"
+                    required=""
+                    value=""
+                  />
+                </div>
+                <button
+                  class="bg-blue-500 text-white py-1 px-4 rounded-sm border cursor-pointer whitespace-nowrap hover:bg-blue-700 hover:border-transparent w-full mt-4"
+                  type="submit"
+                >
+                  Share
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
