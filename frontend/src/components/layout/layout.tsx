@@ -8,7 +8,9 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <div>
       <Navigation />
-      <main>{children}</main>
+      <main className="pt-24 container flex justify-between mx-8 flex-wrap mx-auto">
+        {children}
+      </main>
     </div>
   );
 };

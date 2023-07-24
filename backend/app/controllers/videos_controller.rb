@@ -2,7 +2,7 @@ class VideosController < ApplicationController
   before_action :require_login, only: :create
 
   def index
-    render json: Video.all
+    render json: { message: Video.all }
   end
 
   def create

@@ -10,7 +10,7 @@ RSpec.describe '/videos' do
 
     it 'renders a successful response' do
       get '/api/videos', as: :json
-      expect(response.parsed_body).to eq(Video.all.as_json)
+      expect(response.parsed_body).to eq({ message: Video.all }.as_json)
       expect(response).to be_successful
     end
   end

@@ -32,8 +32,9 @@ export const getVideoDetail = async (src: string) => {
     const res = await request({
       baseUrl: `${YOUTUBE_META_URL}?url=`,
       url: `${src}&format=json`,
+      credentials: "omit",
     });
-    return getResponseData(res);
+    return res.json();
   } catch (e) {
     console.error(e);
   }

@@ -5,12 +5,18 @@ export const getResponseData = async (response: Response) => {
   return data.message;
 };
 
-export const request = async ({ baseUrl, url, method, data }: RequestProps) =>
-  fetch(`${baseUrl ?? BASE_URL}/${url}`, {
+export const request = async ({
+  baseUrl,
+  url,
+  method,
+  data,
+  credentials,
+}: RequestProps) =>
+  fetch(`${baseUrl ?? BASE_URL}${url}`, {
     method: method ?? "get",
     headers: {
       "Content-Type": "application/json",
     },
-    credentials: "include",
+    credentials: credentials ?? "include",
     ...(data && { body: JSON.stringify(data) }),
   });
