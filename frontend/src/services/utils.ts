@@ -5,9 +5,9 @@ export const getResponseData = async (response: Response) => {
   return data.message;
 };
 
-export const request = async ({ url, method, data }: RequestProps) =>
-  fetch(`${BASE_URL}/${url}`, {
-    method,
+export const request = async ({ baseUrl, url, method, data }: RequestProps) =>
+  fetch(`${baseUrl ?? BASE_URL}/${url}`, {
+    method: method ?? "get",
     headers: {
       "Content-Type": "application/json",
     },
