@@ -5,20 +5,10 @@ export type Video = {
   src: string;
   createdAt: Date;
   updatedAt: Date;
-  title?: string;
-  author_name?: string;
-  author_url?: string;
-  type?: string;
-  height?: number;
-  width?: number;
-  version?: string;
-  provider_name?: string;
-  provider_url?: string;
-  thumbnail_height?: number;
-  thumbnail_width?: number;
-  thumbnail_url?: string;
-  html?: string;
-  shared_by?: string
+  title: string;
+  desc: string;
+  html_text: string;
+  shared_by?: string;
 };
 
 export type User = {

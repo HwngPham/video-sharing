@@ -1,4 +1,4 @@
-import { getVideos, createVideo, getVideoDetail } from "../../services";
+import { getVideos, createVideo } from "../../services";
 import { MERGE_STATE, StoreState } from "../constants";
 
 const initState = {
@@ -14,13 +14,11 @@ export const videoSlice = (set: any) => ({
 
   createVideo: async (src: string) => {
     const newVideo = await createVideo(src);
-    const videoDetail = await getVideoDetail(src);
     newVideo &&
       set(
         (state: StoreState) => {
           state.videos.push({
             ...newVideo,
-            ...videoDetail,
             shared_by: state.user?.email,
           });
         },
