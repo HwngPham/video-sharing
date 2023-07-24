@@ -1,5 +1,5 @@
-import { useStore } from "../store";
-import { Button } from "./button";
+import { useStore } from "../../store";
+import { Button } from "../button/button";
 
 export const UserAction = () => {
   const { user, logout } = useStore();

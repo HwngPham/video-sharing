@@ -1,6 +1,6 @@
-import { useStore } from "../store";
-import { AuthForm } from "./authForm";
-import { UserAction } from "./userAction";
+import { useStore } from "../../store";
+import { AuthForm } from "../authForm/authForm";
+import { UserAction } from "../userAction/userAction";
 
 export const Navigation = () => {
   const { user } = useStore();

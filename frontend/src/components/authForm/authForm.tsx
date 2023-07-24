@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { useStore } from "../store";
-import { Button } from "./button";
+import { useStore } from "../../store";
+import { Button } from "../button/button";
 
 const initState = {
   email: "",
