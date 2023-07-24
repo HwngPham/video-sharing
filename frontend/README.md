@@ -14,8 +14,16 @@ You can ignore these dependencies if using docker
 
 ### Manual installation
 
+1.  Install dependencies
+
 ```sh
 npm install
+```
+
+2.  Config environment variables
+
+```sh
+cp .env.example .env
 ```
 
 ### Docker setup
@@ -40,7 +48,9 @@ docker compose up -d
 
 Please follow instructions in **backend/README.md** or use **docker-compose.yml**
 
-## Running the Application
+## Usage
+
+### Run application
 
 Start local server
 
@@ -53,6 +63,18 @@ Or run preview of production
 ```sh
 cd ..
 npm run build && npm run start
+```
+
+### Run unit test
+
+```sh
+npm run test
+```
+
+### Run lint
+
+```sh
+npm run lint
 ```
 
 ## E2E testing

@@ -27,3 +27,6 @@ services:
       - 8000:8000
     depends_on:
       - web
+    environment:
+      VITE_PORT: 8000
+      VITE_BASE_URL: http://localhost:3000/
