@@ -27,7 +27,7 @@ You can build a standalone image for server app and setup a database manually or
 
    ```sh
    docker build -t backend .
-   docker run backend -d 3000:3000
+   docker run -p 3000:3000 backend
    ```
 
    2. Use docker-compose

@@ -1,27 +1,88 @@
-# React + TypeScript + Vite
+# README
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+`Frontend` project is a simple SPA which allows users to authenticate and share Youtube videos. This project is impleneted with `React 18.2.0`
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You can ignore these dependencies if using docker
 
-## Expanding the ESLint configuration
+- node 18.16.0
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+**IMPORTANT** You can choose to setup project manually or just use the provided Dockerfile.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+### Manual installation
+
+```sh
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Docker setup
+
+You can build a standalone image for frontend app manually or you can use docker compose to bootstrap everything.
+
+1.  Build docker image by yourself
+
+```sh
+docker build -t frontend .
+docker run -p 8000:8000 frontend
+```
+
+2.  Use docker-compose
+
+```sh
+cd .. # docker-compose.yml is located at root dir
+docker compose up -d
+```
+
+## Server Setup
+
+Please follow instructions in **backend/README.md** or use **docker-compose.yml**
+
+## Running the Application
+
+Start local server
+
+```sh
+npm run dev
+```
+
+Or run preview of production
+
+```sh
+cd ..
+npm run build && npm run start
+```
+
+## E2E testing
+
+**IMPORTANT** This project use Playwright, which uses headless browser to perform e2e testing.
+
+It is recommended to follow the [official instruction](https://playwright.dev/docs/intro#whats-installed) for installation. This has been tested well on Ubuntu 22.04 and will not work on OpenSUSE.
+
+1. Install dependencies
+
+```sh
+npx playwright install
+```
+
+2. Start services
+
+```sh
+cd ..
+docker compose up -d # You can omit '-d' flag to run containers in attached mode in order to observe server logs while tests are running
+```
+
+3. Run test agaist running services
+
+```sh
+cd frontend
+npm run e2e
+```
+
+4. View test report
+
+```sh
+npx playwright show-report
+```
