@@ -19,5 +19,4 @@ export interface StoreState {
   createVideo: (src: string) => Promise<void>
   login: (email: string, password: string) => Promise<void>
   logout: () => Promise<void>
-  register: (email: string, password: string) => Promise<void>
 }

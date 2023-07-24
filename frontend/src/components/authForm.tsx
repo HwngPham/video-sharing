@@ -9,7 +9,7 @@ const initState = {
 export const AuthForm = () => {
   const [formData, setFormData] = useState(initState);
   const [formError, setFormError] = useState(initState);
-  const { login, register } = useStore();
+  const { login } = useStore();
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

@@ -27,7 +27,7 @@ RSpec.describe '/auth' do
       it 'creates a new user and returns the detail' do
         expect(response).to have_http_status :created
         expect(User.count).to eq 1
-        expect(response.body).to eq(User.first.to_json)
+        expect(response.body).to eq({ message: User.first }.to_json)
       end
 
       it 'logs user in' do
@@ -46,7 +46,7 @@ RSpec.describe '/auth' do
     describe 'when invalid email or password' do
       it 'does not log user in' do
         post '/auth/login',
-             params: { emai: user.email, password: '' }
+             params: { email: user.email, password: '' }
 
         expect(response).to have_http_status :unauthorized
         expect(session[:current_user_id]).to be_nil

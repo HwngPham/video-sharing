@@ -9,18 +9,18 @@ class AuthController < ApplicationController
 
     if @user.save
       authenticate
-      render json: @user, status: :created
+      render json: { message: @user }, status: :created
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: { message: @user.errors }, status: :unprocessable_entity
     end
   end
 
   def login
-    return render json: { message: 'Invalid email or password.' }.to_json, status: :unauthorized unless @user
+    return render json: { message: 'Invalid email or password.' }.to_json, status: :not_found unless @user
 
     if @user.authenticate(user_params[:password])
       authenticate
-      render status: :ok
+      render json: { message: @user }, status: :ok
     else
       render json: { message: 'Invalid email or password.' }, status: :unauthorized
     end

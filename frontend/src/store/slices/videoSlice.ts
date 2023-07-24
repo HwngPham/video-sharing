@@ -9,7 +9,7 @@ export const videoSlice = (set: any) => ({
   ...initState,
 
   fetchVideos: async () => {
-    set({ todos: await getVideos() }, MERGE_STATE, "videos/list")
+    set({ videos: await getVideos() }, MERGE_STATE, "videos/list")
   },
 
   createVideo: async (src: string) => {
