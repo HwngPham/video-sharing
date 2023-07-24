@@ -83,4 +83,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.hosts.clear
+  config.session_store :cookie_store, key: 'session_id', samesite: :none
 end
