@@ -13,6 +13,7 @@ WORKDIR /usr/app
 RUN npm i express
 COPY --from=builder /tmp/build/dist ./dist
 COPY --from=builder /tmp/build/server.cjs server.cjs
+COPY --from=builder /tmp/build/.env.example .env
 
 EXPOSE 8000
 CMD ["node", "./server.cjs"]
