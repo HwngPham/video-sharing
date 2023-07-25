@@ -15,27 +15,29 @@ You can ignore these dependencies if using docker
 **IMPORTANT** You can choose to setup project manually or just use the provided Dockerfile.
 
 ### Manual installation
-   ```sh
-   bundle install
-   ```
+
+```sh
+bundle install
+cp .env.example.yml .env.yml
+```
 
 ### Docker setup
 
 You can build a standalone image for server app and setup a database manually or you can use docker compose to bootstrap both.
 
-  1. Build docker image by yourself
+1. Build docker image by yourself
 
-   ```sh
-   docker build -t backend .
-   docker run -p 3000:3000 backend
-   ```
+```sh
+docker build -t backend .
+docker run -p 3000:3000 backend
+```
 
-   2. Use docker-compose
+2.  Use docker-compose
 
-   ```sh
-   cd .. # docker-compose.yml is located at root dir
-   docker compose up -d
-   ```
+```sh
+cd .. # docker-compose.yml is located at root dir
+docker compose up -d
+```
 
 ## Database Setup
 
@@ -43,66 +45,69 @@ You can build a standalone image for server app and setup a database manually or
 
 Start your postgresql server, edit environment variables with your local credentials and run migrations.
 
-   1. Specify environments variable
-   ```sh
-   cp .env.example.yml .env.yml
-   ```
+1.  Specify database credentials in `.env.yml`
 
-   2. Start you
-   ```sh
-   rails db:migrate
-   ```
+2.  Run migrations
+
+```sh
+rails db:migrate
+```
 
 ### Docker setup
-   1. Move to `docker-compose.yml` dir
 
-   ```sh
-   cd ..
-   ```
+1.  Move to `docker-compose.yml` dir
 
-   2. Start containers
-   ```
-   docker compose up -d
-   ```
+```sh
+cd ..
+```
 
-   3. Run migrations against Rails container
-    ```sh
-    cd ..
-    docker compose exec web bundle exec rails db:migrate
-    ```
+2.  Start containers
 
-   *Note: you may need re-start the containers*
+```sh
+docker compose up -d
+```
+
+3.  Run migrations against Rails container
+
+```sh
+cd ..
+docker compose exec web bundle exec rails db:migrate
+```
+
+_Note: you may need re-start the containers_
 
 ## Running the Application
 
 Start local server
-   ```sh
-   rails s
-   ```
+
+```sh
+rails s
+```
 
 Or start with docker
-   ```sh
-   cd ..
-   docker compose up -d
-   ```
+
+```sh
+cd ..
+docker compose up -d
+```
 
 ## Usage
 
 After list available endpoints, you could use Postman to make a request to the server.
 
-   ```sh
-   rails routes
-   ```
+```sh
+rails routes
+```
 
 To test the application
 
-   ```sh
-   rspec
-   ```
+```sh
+rspec
+```
 
 To terminate a running server
 
-   ```sh
-   CTRL + C # if you are binding a running process to a opened terminal
-   docker compose down # if you run server in background
-   ```
+```sh
+CTRL + C # if you are binding a running process to a opened terminal
+docker compose down # if you run server in background
+```
