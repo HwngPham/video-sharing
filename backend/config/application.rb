@@ -25,7 +25,7 @@ module Backend
     config.api_only = true
 
     # This also configures session_options for use below
-    config.session_store :cookie_store, key: 'session_id', samesite: :none
+    config.session_store :cookie_store, key: 'session_id', same_site: :none
 
     # Required for all session management (regardless of session_store)
     config.middleware.use ActionDispatch::Cookies
